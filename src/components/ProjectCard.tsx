@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { ExternalLink } from "lucide-react";
 import { Project } from "@/data/projects";
 
@@ -8,10 +9,8 @@ interface ProjectCardProps {
 
 export function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <a
-      href={project.externalUrl}
-      target="_blank"
-      rel="noopener noreferrer"
+    <Link
+      href={`/projects/${project.id}`}
       className="group relative block w-full overflow-hidden rounded-2xl glass transition-all duration-300 hover:shadow-[0_0_30px_rgba(0,240,255,0.15)] hover:-translate-y-2"
     >
       <div className="relative aspect-[4/3] w-full overflow-hidden">
@@ -42,6 +41,6 @@ export function ProjectCard({ project }: ProjectCardProps) {
           {project.title}
         </h3>
       </div>
-    </a>
+    </Link>
   );
 }
